@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>BE-COM</title>
+    <link href="/images/logo.png" rel="icon" />
+
+    <!-- slider stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"
+    />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/dropdown.css" rel="stylesheet" />
+    <link href="css/cart.css" rel="stylesheet" />
+    <link href="css/register.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+  </head>
+
+  <body class="sub_page">
+    <div class="hero_area">
+      <!-- header section strats -->
+      <%- include("../partials/headerini") -%>
+    </div>
+
+    <!-- end header section -->
+
+    <section class="contact_section layout_padding">
+      <div class="design-box">
+        <img src="images/design-2.png" alt="" />
+      </div>
+      <div class="container">
+        <div class="">
+          <h2 class="">Update Your Details</h2>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="left">
+          <div class="row">
+            <div class="col-md-6">
+              <form action="/update/<%= currentUser._id %>" method="post">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    name="name"
+                    value="<%= currentUser.name %>"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    name="address"
+                    value="<%= currentUser.address %>"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Phone"
+                    name="phone"
+                    value="<%= currentUser.phone %>"
+                  />
+                </div>
+
+                <div class="d-flex">
+                  <button class="register" type="submit">Update</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end register section -->
+
+    <!-- info section -->
+    <%- include("../partials/footer") -%>
+  </body>
+</html>

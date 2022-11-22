@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>BE-COM</title>
+    <link href="/images/logo.png" rel="icon" />
+
+    <!-- slider stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"
+    />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/dropdown.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+    <style>
+      .suba {
+        padding: 10px;
+        background-color: #f76a2e;
+        color: aliceblue;
+        border-radius: 6px;
+        margin-left: 80px;
+      }
+
+      .suba:hover {
+        background-color: #607d8b;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+
+  <body class="sub_page">
+    <div class="hero_area">
+      <!-- header section strats -->
+      <%- include("../partials/headerini") -%>
+      <!-- end header section -->
+    </div>
+
+    <div class="item_section layout_padding2">
+      <div class="container">
+        <div class="item_container">
+          <div class="box">
+            <div class="price">
+              <h6>Best PRICE:</h6>
+              <h5 style="font-weight: bold; color: #808080">Nu.1000.00</h5>
+            </div>
+            <div class="img-box">
+              <img src="images/i-1.png" alt="" />
+            </div>
+            <div class="name">
+              <a class="suba" href="/handicraft" type="button">Shop Now</a>
+            </div>
+          </div>
+          <div class="box">
+            <div class="price">
+              <h6>Best PRICE</h6>
+              <h5 style="font-weight: bold; color: #808080">Nu.2000.00</h5>
+            </div>
+            <div class="img-box">
+              <img src="/images/statue.png" alt="" />
+            </div>
+            <div class="name">
+              <a class="suba" href="/religious" type="button">Shop Now</a>
+            </div>
+          </div>
+          <div class="box">
+            <div class="price">
+              <h6>Best PRICE</h6>
+              <h5 style="font-weight: bold; color: #808080">Nu.600.00</h5>
+            </div>
+            <div class="img-box">
+              <img src="/images/shit1.png" alt="" />
+            </div>
+            <div class="name">
+              <a class="suba" href="/t-shirt" type="button">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- item section -->
+
+    <!-- end item section -->
+
+    <!-- price section -->
+
+    <section class="price_section layout_padding">
+      <div class="container">
+        <div class="heading_container">
+          <h2>Buy the Best T-Shirts</h2>
+        </div>
+        <div class="price_container">
+          <% products.forEach(function(product){ %> <% if(product.category ===
+          "t-shirt"){ %>
+          <div class="box">
+            <div class="name">
+              <h6><%= product.productname %></h6>
+            </div>
+            <div class="img-box">
+              <img
+                src="data:product/<%=product.img.contentType%>;base64,
+                                  <%=product.img.data.toString('base64')%>"
+              />
+            </div>
+            <div class="detail-box">
+              <p><%= product.description %></p>
+              <h5>Nu.<span><%= product.price %>.00</span></h5>
+
+              <% if(product.stock === true){ %>
+              <a href="/orderNow/<%= product._id %>" style="margin-left: 8px">
+                Buy Now
+              </a>
+              <hr />
+              <p>
+                <span style="color: orange"
+                  >Status:
+                  <i
+                    class="fa fa-check-circle"
+                    style="font-size: 18px; color: orange"
+                  ></i>
+                  Available</span
+                >
+              </p>
+              <% }else{ %>
+              <a style="margin-left: 8px; pointer-events: none"> Buy Now </a>
+              <hr />
+              <p>
+                <span style="color: red"
+                  ><i
+                    class="fa fa-exclamation-triangle"
+                    style="font-size: 18px; color: rgb(248, 13, 20)"
+                  ></i>
+                  Temporarily out of stock</span
+                >
+              </p>
+              <% } %>
+            </div>
+          </div>
+          <% } %> <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <!-- end price section -->
+
+    <!-- info section -->
+    <%- include("../partials/footer") -%>
+  </body>
+</html>

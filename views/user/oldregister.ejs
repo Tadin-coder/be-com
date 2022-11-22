@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>BE-COM</title>
+
+    <!-- slider stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"
+    />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/register.css" rel="stylesheet" />
+    <link href="css/dropdown.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+  </head>
+
+  <body class="sub_page">
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="/index">
+              <img src="images/logo.png" alt="" />
+              <span> Bhutanese E-Commerce </span>
+           
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div
+                class="d-flex ml-auto flex-column flex-lg-row align-items-center"
+              >
+                <ul class="navbar-nav">
+                  <li class="search-container">
+                    <form action="/action_page.php">
+                      <input type="text" placeholder="Search.." name="search" />
+                      <button type="submit">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </form>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="/about"> About</a>
+                  </li>
+    
+                  <div class="dropdown">
+                    <li class="nav-link">Category</li>
+                    <div class="dropdown-content">
+                      <a href="/kira">Kira</a>
+                      <a href="/gho">Gho</a>
+                      <a href="/jacket">Jacket</a>
+                      <a href="/pant">Pants</a>
+                      <a href="/rachu">Rachu</a> 
+                      <a href="/t-shirt">T-Shirt</a>
+                      <a href="/religious">Religious Products</a>
+                      <a href="/handicraft">Handicrafts</a>
+                    </div>
+                  </div>
+       
+                  <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Have Account?</a>
+                  </li>
+                 
+                  <li class="nav-item">
+                    <a href="/cart" class="nav-link">
+                      <img class="cart-img" src="images/cart.png" alt="" />
+                      <p class="cart-number">0</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+    </div>
+
+    <!-- register section -->
+
+
+    <section class="contact_section layout_padding">
+      <div class="design-box">
+        <img src="images/design-2.png" alt="" />
+      </div>
+      <div class="container">
+        <div class="">
+          <h2 class="">Register with BE-COM</h2>
+          
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="left">
+          <div class="row">
+            <div class="col-md-6">
+              <form action="/register" method="post" >
+                <div>
+                  <input type="text" placeholder="Name" name="name" />
+                  <p style="color: red">
+                    <%= (typeof errors!="undefined" && typeof
+                    errors.name!="undefined") ? errors.name.msg: ""%>
+                  </p>
+
+                </div>
+
+                <div>
+                  <input type="email" placeholder="Email" name="username"/>
+                  <p style="color: red">
+                    <%= (typeof errors!="undefined" && typeof
+                    errors.email!="undefined") ? errors.email.msg: ""%>
+                  </p>
+                </div>
+
+                <div>
+                  <input type="text" placeholder="Address" name="address"/>
+                  <p style="color: red">
+                    <%= (typeof errors!="undefined" && typeof
+                    errors.address!="undefined") ? errors.address.msg: ""%>
+                  </p>
+                </div>
+
+                <div>
+                  <input type="text" placeholder="Phone" name="phone"/>
+                  <p style="color: red">
+                    <%= (typeof errors!="undefined" && typeof
+                    errors.phone!="undefined") ? errors.phone.msg: ""%>
+                  </p>
+                </div>
+
+                <div>
+                  <input type="password" placeholder="Password" name="password" />
+                  <p style="color: red">
+                    <%= (typeof errors!="undefined" && typeof
+                    errors.password!="undefined") ? errors.password.msg: ""%>
+                  </p>
+
+                </div>
+                <div>
+                  <label for="file">Upload Image</label>
+                  <input type="file" id="file" name="file" value="" />
+                </div>
+                <div>
+                  <input type="password" placeholder="confirmPassword" name="confirmPassword"/>
+                  <p style="color: red">
+                    <%= (typeof errors!="undefined" && typeof
+                    errors.confirmPassword!="undefined") ? errors.confirmPassword.msg: ""%>
+                  </p>
+                </div>
+                <p style="color: red">
+                <%= error %>
+                </p>
+                <div class="d-flex">
+                  <button class="register" type="submit">REGISTER</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end register section -->
+    
+    <!-- info section -->
+    <%- include("../partials/footer") -%>

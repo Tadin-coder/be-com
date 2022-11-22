@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Products</title>
+  </head>
+
+  <body>
+    <h1>Add New Products</h1>
+    <hr />
+    <div>
+      <form action="/addProduct" method="POST" enctype="multipart/form-data">
+        <div>
+          <label for="name">Product Name:</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Name"
+            value=""
+            name="productname"
+            required
+          />
+        </div>
+        
+        <div>
+          <label for="image">Upload Image</label>
+          <input type="file" id="image" name="image" value="" required />
+        </div>
+        <div>
+            <label for="price">Price:</label>
+            <input
+              type="number"
+              id="price"
+              placeholder="Price"
+              value=""
+              name="price"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="cars">Choose a category:</label>
+        <select name="cars" id="cars">
+            <option value="volvo">kira</option>
+            <option value="saab">gho</option>
+            <option value="opel">pant</option>
+            <option value="audi">shirt</option>
+        </select>
+          </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              value=""
+              rows="2"
+              placeholder="Description"
+              required
+            >
+            </textarea>
+          </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <hr />
+
+    <h1>Uploaded Images</h1>
+  </body>
+</html>

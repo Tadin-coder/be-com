@@ -1,0 +1,55 @@
+<%- include("../partials/adminheader") -%>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div class="d-flex flex-column" id="content-wrapper-1">
+                <div id="content">
+                    <div class="container-fluid">
+                        <h3 class="text-dark mb-4"></h3>
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 fw-bold">Orders</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Product</th>
+                                                <th>Date</th>
+                                                <th>QTY</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        
+                                            <tr>
+                                                <% if(orders){ %>
+                                                    <% orders.forEach(function(product){ %>
+                                                      
+                                                <td><%= product.address %></td>
+                                                <td></td>
+                                 
+                                                <td></td>
+                                       
+                                            </tr>
+                                            <% }) %>
+                                            <% } %> 
+                                        </tbody>
+                                        <tfoot>
+                                            <tr></tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

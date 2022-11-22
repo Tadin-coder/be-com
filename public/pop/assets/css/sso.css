@@ -1,0 +1,11 @@
+.nav-link:hover {
+  background-color: #063150;
+  transition: 0.7s;
+}
+
+.btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+  color: #fff;
+  background-color: #0a3d62;
+  border-color: #2653d4;
+}
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../login/login.css" />
+    <title>BE-COM</title>
+    <link href="/images/logo.png" rel="icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row m-5 no-gutters shadow-lg">
+        <div class="col-md-6 d-none d-md-block">
+          <img
+            src="/images/frontphoto1.png"
+            class="img-fluid"
+            style="min-height: 100%"
+          />
+        </div>
+        <div class="col-md-6 bg-white p-5">
+          <h4 class="pb-3">Register with BE-COM</h4>
+          <div class="form-style">
+            <form action="/register" method="post">
+              <div class="form-group pb-0">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                  name="name"
+                />
+                <p style="color: red">
+                  <%= (typeof errors!="undefined" && typeof
+                  errors.name!="undefined") ? errors.name.msg: ""%>
+                </p>
+              </div>
+
+              <div class="form-group pb-0">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email"
+                  name="username"
+                />
+                <p style="color: red">
+                  <%= (typeof errors!="undefined" && typeof
+                  errors.email!="undefined") ? errors.email.msg: ""%>
+                </p>
+              </div>
+
+              <div class="form-group pb-0">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Address"
+                  name="address"
+                />
+                <p style="color: red">
+                  <%= (typeof errors!="undefined" && typeof
+                  errors.address!="undefined") ? errors.address.msg: ""%>
+                </p>
+              </div>
+
+              <div class="form-group pb-0">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Phone"
+                  name="phone"
+                />
+                <p style="color: red">
+                  <%= (typeof errors!="undefined" && typeof
+                  errors.phone!="undefined") ? errors.phone.msg: ""%>
+                </p>
+              </div>
+
+              <div class="form-group pb-0">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  class="form-control"
+                  name="password"
+                />
+                <p style="color: red">
+                  <%= (typeof errors!="undefined" && typeof
+                  errors.password!="undefined") ? errors.password.msg: ""%>
+                </p>
+              </div>
+
+              <div class="form-group pb-0">
+                <input
+                  type="password"
+                  placeholder="confirmPassword"
+                  name="confirmPassword"
+                  class="form-control"
+                />
+                <p style="color: red">
+                  <%= (typeof errors!="undefined" && typeof
+                  errors.confirmPassword!="undefined") ?
+                  errors.confirmPassword.msg: ""%>
+                </p>
+              </div>
+              <p style="color: red"><%= error %></p>
+
+              <div class="pb-2">
+                <button
+                  type="submit"
+                  class="btn btn-warning w-100 font-weight-bold mt-2"
+                >
+                  Register
+                </button>
+              </div>
+            </form>
+            <div class="sideline">OR</div>
+
+            <div class="pt-4 text-center">
+              Have an Account?. <a href="/login">Sign in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

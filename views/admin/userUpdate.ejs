@@ -1,0 +1,45 @@
+<%- include("../partials/adminheader") -%>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <p style="margin-top: 50px;width: 500px;height: 30px;margin-left: 50px;color: rgb(133,135,150);">User Update</p>
+                <div style="margin-bottom: 50px;">
+                    <div class="p-5" style="margin-bottom: 100px;">
+                        <form class="user" action="/editUser/<%= user._id %>" method="post">
+                            <div class="mb-3">
+                                <p style="margin-bottom: 0px;">Name</p><input class="form-control form-control-user" type="text" 
+                                id="exampleInputEmail" aria-describedby="emailHelp" placeholder="" name="name" 
+                                style="border-radius: 5px;width: 511.72px;height: 55px;"
+                                value="<%= user.name %>">
+                            </div>
+                            <div class="mb-3">
+                                <p style="margin-bottom: 0px;">Email</p><input class="form-control form-control-user" type="email" 
+                                id="exampleInputEmail-1" aria-describedby="emailHelp" placeholder="" name="username" 
+                                style="border-radius: 5px;width: 511.72px;height: 55px;"
+                                value="<%= user.username %>">
+                            </div>
+                            <div class="mb-3">
+                                <p style="margin-bottom: 0px;">Address</p><input class="form-control form-control-user" type="text" 
+                                id="exampleInputEmail-2" aria-describedby="emailHelp" placeholder="" name="address" 
+                                style="border-radius: 5px;width: 511.72px;height: 55px;"
+                                value="<%= user.address %>">
+                            </div>
+                            <div class="mb-3">
+                                <p style="margin-bottom: 0px;">Contact No.</p><input class="form-control form-control-user" type="number" 
+                                id="exampleInputEmail-3" aria-describedby="emailHelp" placeholder="" name="phone" 
+                                style="border-radius: 5px;width: 511.72px;height: 55px;"
+                                value="<%= user.phone %>">
+                            </div>
+                            <button class="btn btn-primary" type="submit" style="border-radius: 6px;background: rgb(247,106,46);width: 150px;">
+                                Update</button>
+                        </form>
+                        <div class="text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

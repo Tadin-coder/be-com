@@ -1,0 +1,156 @@
+<header class="header_section">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg custom_nav-container">
+      <a class="navbar-brand" href="/">
+        <img src="images/logo.png" alt="" />
+        <span> Bhutanese E-Commerce </span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+          <ul class="navbar-nav">
+            <li class="search-container">
+              <form action="/search" method="post">
+                <input
+                  type="text"
+                  placeholder="Search.."
+                  name="productname"
+                  value=""
+                />
+                <button type="submit" class="btn btn-outline-light">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/about"> About</a>
+            </li>
+
+            <div class="dropdown">
+              <li class="nav-link">Category</li>
+              <div class="dropdown-content">
+                <a href="/kira">Kira</a>
+                <a href="/gho">Gho</a>
+                <a href="/jacket">Jacket</a>
+                <a href="/pant">Pants</a>
+                <a href="/rachu">Rachu</a>
+                <a href="/t-shirt">T-Shirt</a>
+                <a href="/religious">Religious Products</a>
+                <a href="/handicraft">Handicrafts</a>
+              </div>
+            </div>
+            <% if(!currentUser){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Have Account?</a>
+            </li>
+            <% } else{ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/myorder">My Orders</a>
+            </li>
+
+            <div class="dropdown">
+              <li class="nav-link"><%= currentUser.name %></li>
+              <div class="dropdown-content">
+                <a href="#update<%= currentUser._id %>" style="margin-left: 10px" role="button"
+                  data-toggle="modal"
+                  ><i class="fa fa-refresh"></i>&nbsp&nbsp&nbsp Update</a
+                >
+
+                <div class="text-left" style="margin-right: 0px;margin-left: 0px;margin-top: -4px;display: flex;color: rgb(255,255,255);">                                       
+                  <div class="modal fade" role="dialog" tabindex="-1" id="update<%= currentUser._id %>">
+                      <div class="modal-dialog" role="document">
+                      
+                          <form action="/update/<%= currentUser._id %>" method="post">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                              
+                          <div class="modal-content">
+                              <div class="modal-body">
+                                  <div class="col-md-8 col-lg-12 col-xl-12 offset-md-2 offset-lg-0 offset-xl-0">
+                                      <h3 class="text-center" style="color: rgb(52,52,52);">User Update</h3>
+                                      <hr>
+                                      <div class="row">
+                                          <div class="col-9 col-lg-6 col-xl-12 col-md-12 offset-2 offset-lg-3">
+                                              <div class="form-group"><div><label>
+                                                
+                                             
+                                          </div>
+                                          </div>
+      
+                                          <div class="col-9 col-lg-6 col-xl-12 col-md-12 offset-2 offset-lg-0">
+                                              <div class="form-group"><div><label class="text-left" style="color: rgb(52,52,52);">Name:</label></div>
+                                              <input type="text" name="name" value="<%= currentUser.name %>">
+                                             
+                                          </div>
+                                          </div>
+
+                                          <div class="col-9 col-lg-6 col-xl-12 col-md-12 offset-2 offset-lg-0">
+                                            <div class="form-group"><div><label class="text-left" style="color: rgb(52,52,52);">Email:</label></div>
+                                            <input type="email" name="username" value="<%= currentUser.username %>">
+                                           
+                                        </div>
+                                        </div>
+      
+                                          <div class="col-9 col-lg-6 col-xl-12 col-md-12 offset-2 offset-lg-0">
+                                              <div class="form-group"><div><label class="text-left" style="color: rgb(52,52,52);">Address:</label></div>
+                                              <input type="test" name="address" value="<%= currentUser.address %>">
+                                              
+                                          </div>
+                                          </div>
+      
+                                          <div class="col-9 col-lg-6 col-xl-12 col-md-12 offset-2 offset-lg-0">
+                                              <div class="form-group"><div><label class="text-left" style="color: rgb(52,52,52);">Contact Number:  </label></div>
+                                              <input type="number" name="phone" value="<%= currentUser.phone %>">
+                                             
+                                          </div>
+                                          </div>
+                                        
+                                      </div>
+                                      <hr>
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <div style="margin-right:auto;margin-left:auto;"><button class="btn btn-warning form-btn" type="submit">Save Changes</button>
+                                    <a style="color: black;" href="/changePass"><i class="fa fa-key"></i><u>ChangePass</u></a
+                                      >
+                                    
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+                      </div>
+                  </div>
+                  </div>
+
+
+                <a href="/logout" style="margin-left: 10px"
+                  ><i class="fa fa-share-square-o"></i>&nbsp&nbsp&nbsp Logout
+                </a>
+              </div>
+            </div>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<script src="/pop/assets/js/jquery.min.js"></script>
+<script src="/pop/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="/pop/assets/js/Profile-Edit-Form.js"></script>
+<script src="/pop/assets/js/theme.js"></script>

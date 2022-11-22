@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>BE-COM</title>
+    <link href="/images/logo.png" rel="icon" />
+
+    <!-- slider stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"
+    />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/dropdown.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+  </head>
+    <style>
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 80%;
+        border: 1px solid #ddd;
+        margin-top: 40px;
+        margin-bottom: 80px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+
+  </head>
+
+  <body class="sub_page">
+    <div class="hero_area">
+      <!-- header section strats -->
+      <%- include("../partials/headerini") -%>
+    </div>
+    
+
+      <!-- end header section -->
+      <div style="overflow-x: auto">
+        <table style="background-color: white">
+          <tr>
+            <h2 style="color: orange; text-align: center; margin-top:10px">My Order List</h2>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>TotalPrice</th>
+            <th>Status</th>
+          </tr>
+          <% orders.forEach(function(order){ %>
+
+          <tr>
+            <td><%= order.productname %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.price %></td>
+            <td><%= order.totalPrice %></td>
+            
+            <% if(order.status === "Pending"){ %>
+                <td>
+             <span style="background-color: #FEE6AF;  padding: 6px 10px 6px 10px; border-radius: 10px;"><%= order.status %></span> </td>
+          <%  }else if(order.status === "Declined"){ %>
+              <td>
+                <span style="background-color: #ECA0A8;  padding: 6px 10px 6px 10px; border-radius: 10px;"><%= order.status %></span> </td>
+      <%      }else{ %>
+              <td>
+                <span style="background-color: #A8CDDA;  padding: 6px 10px 6px 10px; border-radius: 10px;"><%= order.status %></span> </td>
+          <%  } %>
+           
+
+            <% }) %>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- info section -->
+    <%- include("../partials/footer") -%>
+  </body>
+</html>

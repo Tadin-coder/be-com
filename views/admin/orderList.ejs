@@ -1,0 +1,153 @@
+<%- include("../partials/adminheader") -%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div class="d-flex flex-column" id="content-wrapper-1">
+                <div id="content">
+                    <div class="container-fluid">
+                        <h3 class="text-dark mb-4"></h3>
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <h3 class="text-info m-0 fw-bold" style="text-align: center;">Orderlist</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead >
+                                            <tr >
+                                               <td style="font-weight: bold;">Username</td>
+                                                <td style="font-weight: bold;">Phone</td>
+                                                <td style="font-weight: bold;">Address</td>
+                                                <td style="font-weight: bold;">Product</td>
+                                                <td style="font-weight: bold;">Quantity</td>
+                                                <td style="font-weight: bold;">Price</td>
+                                                <td style="font-weight: bold;">TotalPrice</td>
+                                                <td style="font-weight: bold;">Status</td>
+                                                <td style="font-weight: bold;">Action</td>
+                                                <td style="font-weight: bold;">Action</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>                     
+                                            <% Orders.forEach(function(order){ %>         
+                                            <tr>
+                                                <td><%= order.user %></td>
+                                                <td><%= order.phone %></td>
+                                                <td><%= order.address %></td>
+                                                <td><%= order.productname %></td>
+                                                <td><%= order.quantity %></td>
+                                                <td><%= order.price %></td>    
+                                                <td><%= order.totalPrice %></td>
+                                                <td><%= order.status %></td>
+                                                <td>
+                                                    <a role="button" data-toggle="modal" style="background-color: #377C7B; padding:4px; border-radius: 8px; text-decoration: none; color:white" href="#Accept<%= order._id %>">Accept</a>
+                                                       <div class="modal fade" role="dialog" tabindex="-1" id="Accept<%= order._id %>">
+                                                           <div class="modal-dialog" role="document">
+                                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: red; background-color:aliceblue; border-radius: 8px;">
+                                                                   <span aria-hidden="true" >×</span></button>
+                                                               <div class="modal-content">
+                                                                   <div class="modal-header">
+                                                                       <h4>Accept Order</h4>
+                                                                      </div>
+                                                                       <div class="modal-body">
+                                                                       <p class="text-center text-muted">Are you sure you want to Accept this Order?</p>
+                                                                   </div>
+                                                                   <div class="modal-footer">
+                                                                       <div class="col text-center">
+                                                                        <form action="/Accept" method="post">
+                                                                            <button 
+                                                                            class="btn btn-warning" style="padding: 10px;border-radius: 8px;"
+                                                                            name="submit"
+                                                                            type="submit"
+                                                                            value="Accept <%= order._id %>"
+                                                                            >Accept</button>
+                                                                         
+                                                                            </form>
+                                                                   </div>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   
+                                                   <a role="button" data-toggle="modal" style="background-color: #835F72; padding:4px; border-radius: 8px; text-decoration: none; color:white" 
+                                                   href="#Decline<%= order._id %>">Decline</a>
+                                                   <div class="modal fade" role="dialog" tabindex="-1" id="Decline<%= order._id %>">
+                                                       <div class="modal-dialog" role="document">
+                                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: red; background-color:aliceblue; border-radius: 8px;">
+                                                               <span aria-hidden="true" >×</span></button>
+                                                           <div class="modal-content">
+                                                               <div class="modal-header">
+                                                                   <h4>Decline Order!!!</h4>
+                                                                  </div>
+                                                                   <div class="modal-body">
+                                                                   <p class="text-center text-muted">Are you sure you want to Decline this Order?</p>
+                                                               </div>
+                                                               <div class="modal-footer">
+                                                                   <div class="col text-center">
+                                                                    <form action="/Decline" method="post">
+                                                                        <button 
+                                                                        class="btn btn-danger" style="padding: 10px;border-radius: 8px;"
+                                                                        name="submit"
+                                                                        type="submit"
+                                                                        value="Decline <%= order._id %>"
+                                                                        >Decline</button>
+                                                                     
+                                                                        </form>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                                   
+                                                </td>
+                                                <td>
+                                                   
+                                               
+                                                    <a  role="button" data-toggle="modal" href="#delete<%= order._id %>" style="margin-left:8px">
+                                                         <i class="fa fa-trash" style="font-size: 18px;color:rgb(237, 20, 20)"></i></a>
+                                                        <div class="modal fade" role="dialog" tabindex="-1" id="delete<%= order._id %>">
+                                                            <div class="modal-dialog" role="document">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: red; background-color:aliceblue; border-radius: 8px;">
+                                                                    <span aria-hidden="true" >×</span></button>
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h4>Delete Order !</h4>
+                                                                       </div>
+                                                                        <div class="modal-body">
+                                                                        <p class="text-center text-muted">Are you sure you want to Delete the Order</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <div class="col text-center">
+                                                                            <a class="btn btn-danger" style="padding: 10px;border-radius: 8px;" href="/deleteOrder/<%= order._id %>">
+                                                                                Delete</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                  </td>
+                                            </tr>
+                                            <% }) %>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr></tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/pop/assets/js/jquery.min.js"></script>
+    <script src="/pop/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="/pop/assets/js/Profile-Edit-Form.js"></script>
+    <script src="/pop/assets/js/theme.js"></script>
+</body>
+
+</html>

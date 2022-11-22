@@ -1,0 +1,72 @@
+<%- include("../partials/adminheader") -%>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <p style="margin-top: 50px;width: 500px;height: 30px;margin-left: 50px;color: rgb(133,135,150);">New Product</p>
+               
+                <div style="margin-bottom: 50px;">
+                    <div class="p-5" style="margin-bottom: 100px;">
+                        <form class="user" action="/addProduct" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <p style="margin-bottom: 0px;">Title</p>
+                                <input class="form-control form-control-user" type="text" id="exampleInputEmail" 
+                                aria-describedby="emailHelp" placeholder="" 
+                                name="productname" style="border-radius: 5px;width: 511.72px;height: 55px;">
+                            </div>
+                            <div>
+                                <label for="image">Upload Image</label>
+                                <input type="file" id="image" name="image" value="" class="btn btn-primary" 
+                                style="background: rgb(247, 98, 24);color: rgb(255,255,255);width: 250px;border-radius: 10px;"
+                                required />
+                              </div>
+                              <div>
+                            <div class="mb-3">
+                                      
+                                <p style="margin-bottom: 0px;">Price</p>
+                                <input class="form-control form-control-user" type="number" id="exampleInputEmail-1" aria-describedby="emailHelp" placeholder="" name="price" style="border-radius: 5px;width: 511.72px;height: 55px;">
+                            </div>
+                            <div class="mb-3">
+                                <p style="margin-bottom: 0px;">Categories</p>
+                            
+                                <select class="form-control form-control-user" type="text" id="exampleInputEmail-2" aria-describedby="emailHelp" placeholder="" name="category" style="border-radius: 5px;width: 511.72px;height: 55px;">
+
+                                        <option value="" disabled selected>Choose Category</option>
+                                        <option value="kira">kira</option>
+                                        <option value="gho">gho</option>
+                                        <option value="jacket">jacket</option>
+                                        <option value="pant">pant</option>
+                                        <option value="rachu">rachu</option>
+                                        <option value="t-shirt">t-shirt</option>
+                                        <option value="religious">religious</option>
+                                        <option value="handicraft">handicraft</option>
+                                      
+                                      </select>
+
+                            </div>
+                            <div class="mb-3">
+                                <p style="margin-bottom: 0px;">Stock</p>
+                                 <select class="form-control form-control-user" type="text" for="stock" id="stock" aria-describedby="emailHelp" placeholder="" name="stock" style="border-radius: 5px;width: 511.72px;height: 55px;">
+
+                                        <option value="" disabled selected>Stock Available</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                      
+                                      </select>
+
+        
+                            </div>
+                            <div class="mb-3">
+                                <p style="margin-bottom: 0px;">Description</p>
+                                <textarea class="form-control" style="width: 511px;" name="description"> </textarea>
+                            </div><button class="btn btn-primary" type="submit" style="border-radius: 6px;background: rgb(247,106,46);width: 150px;">AddProduct</button>
+                        </form>
+                        <div class="text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
